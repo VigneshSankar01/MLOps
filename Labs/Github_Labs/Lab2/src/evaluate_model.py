@@ -22,7 +22,7 @@ if __name__=='__main__':
     try:
         # Check if the file exists within the folder
         X, y = make_classification(
-                            n_samples=random.randint(0, 1000),
+                            n_samples=random.randint(0, 2000),
                             n_features=6,
                             n_informative=3,
                             n_redundant=0,
