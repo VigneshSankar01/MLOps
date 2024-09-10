@@ -7,6 +7,10 @@ from sklearn.datasets import make_classification
 sys.path.insert(0, os.path.abspath('..'))
 
 if __name__=='__main__':
+    if not os.path.exists('metrics/'): 
+        # then create it.
+        os.makedirs("metrics/")
+        os.makedirs("../metrics/")
     parser = argparse.ArgumentParser()
     parser.add_argument("--timestamp", type=str, required=True, help="Timestamp from GitHub Actions")
     args = parser.parse_args()
@@ -39,9 +43,7 @@ if __name__=='__main__':
     
     # Save metrics to a JSON file
 
-    if not os.path.exists('metrics/'): 
-        # then create it.
-        os.makedirs("metrics/")
+
         
     with open(f'{timestamp}_metrics.json', 'w') as metrics_file:
         json.dump(metrics, metrics_file, indent=4)
